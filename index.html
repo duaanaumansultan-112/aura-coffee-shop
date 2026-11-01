@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Artisan Coffee & Espresso Bar</title>
+    
+    <!-- Google Fonts + FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="section-content">
+            <nav class="navbar">
+                <a href="#" class="nav-logo">
+                    <i class="fa-solid fa-mug-hot logo-icon"></i>
+                    <span class="logo-text">AURA <span>COFFEE</span></span>
+                </a>
+
+                <ul class="nav-menu">
+                    <button id="menu-close-button" class="fa-solid fa-xmark"></button>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#menu" class="nav-link">Artisan Menu</a></li>
+                    <li><a href="#builder" class="nav-link">Brew Studio</a></li>
+                    <li><a href="#guestbook" class="nav-link">Exhibition Log</a></li>
+                </ul>
+
+                <div class="header-actions">
+                    <button class="cart-btn" id="cart-toggle-btn" aria-label="Open Order Cart">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </button>
+                    <button id="menu-open-button" class="fa-solid fa-bars" aria-label="Open Mobile Menu"></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-overlay"></div>
+        <div class="section-content">
+            <div class="hero-details">
+                <div class="badge-pill"><i class="fa-solid fa-award"></i> Exhibition Special Showcase</div>
+                <h2 class="title">Crafted with Passion</h2>
+                <h1 class="subtitle">Experience Coffee Beyond the Cup.</h1>
+                <p class="description">
+                    Welcome to Aura Artisan Coffee. Immerse your senses in single-origin brews, handcrafted botanical espresso specials, and freshly baked pastries.
+                </p>
+                
+                <div class="button-container">
+                    <a href="#menu" class="button order-btn"><i class="fa-solid fa-utensils"></i> Explore Menu</a>
+                    <a href="#builder" class="button custom-btn"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom Brew</a>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <div class="steam-container">
+                    <span class="steam s-1"></span>
+                    <span class="steam s-2"></span>
+                    <span class="steam s-3"></span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Artisan Coffee Cup" class="hero-image">
+                <div class="hero-card shadow-card">
+                    <i class="fa-solid fa-star gold-star"></i>
+                    <div>
+                        <strong>4.9/5 Rating</strong>
+                        <p>Exhibition Favorite Brew</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brew Builder Section -->
+    <section class="builder-section" id="builder">
+        <div class="section-content">
+            <div class="section-title">
+                <h2>Interactive Brew Studio</h2>
+                <p>Craft your custom coffee drink live and preview its layer composition.</p>
+            </div>
+
+            <div class="builder-grid">
+                <!-- Visualizer Cup -->
+                <div class="builder-preview">
+                    <div class="cup-wrapper">
+                        <div class="coffee-cup shadow-lg">
+                            <div class="cup-rim"></div>
+                            <div class="cup-body">
+                                <div class="layer foam-layer" id="layer-foam" style="height: 20%;"><span>Foam</span></div>
+                                <div class="layer milk-layer" id="layer-milk" style="height: 40%;"><span>Oat Milk</span></div>
+                                <div class="layer espresso-layer" id="layer-espresso" style="height: 40%;"><span>Double Espresso</span></div>
+                            </div>
+                            <div class="cup-handle"></div>
+                        </div>
+                    </div>
+                    <div class="cup-spec-summary">
+                        <h4>Live Configuration</h4>
+                        <p id="builder-summary-text">Double Shot Espresso + Oat Milk + Microfoam</p>
+                        <div class="builder-price-tag">$<span id="builder-price">5.50</span></div>
+                    </div>
+                </div>
+
+                <!-- Customizing Controls section -->
+                <div class="builder-controls">
+                    <div class="control-group">
+                        <label><i class="fa-solid fa-mug-saucer"></i> Base Espresso Shot</label>
+                        <div class="option-pills" id="base-shots">
+                            <button class="pill active" data-shot="single" data-price="3.50">Single Shot</button>
+                            <button class="pill" data-shot="double" data-price="4.50">Double Shot</button>
+                            <button class="pill" data-shot="triple" data-price="5.50">Triple Shot</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fa-solid fa-cow"></i> Milk Selection</label>
+                        <div class="option-pills" id="milk-types">
+                            <button class="pill active" data-milk="whole" data-price="0.00">Whole Milk</button>
+                            <button class="pill" data-milk="oat" data-price="0.75">Oat Milk (+$0.75)</button>
+                            <button class="pill" data-milk="almond" data-price="0.75">Almond (+$0.75)</button>
+                            <button class="pill" data-milk="coconut" data-price="0.85">Coconut (+$0.85)</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fa-solid fa-cubes-stacked"></i> Sweetness Level (<span id="sweetness-val">50%</span>)</label>
+                        <input type="range" id="sweetness-slider" min="0" max="100" value="50" class="range-slider">
+                    </div>
+
+                    <div class="control-group">
+                        <label><i class="fa-solid fa-bottle-droplet"></i> Flavor Syrups (+$0.50 ea)</label>
+                        <div class="option-checks">
+                            <label class="check-box"><input type="checkbox" value="Vanilla" class="syrup-check"> Vanilla</label>
+                            <label class="check-box"><input type="checkbox" value="Caramel" class="syrup-check"> Caramel</label>
+                            <label class="check-box"><input type="checkbox" value="Hazelnut" class="syrup-check"> Hazelnut</label>
+                            <label class="check-box"><input type="checkbox" value="Lavender" class="syrup-check"> Lavender</label>
+                        </div>
+                    </div>
+
+                    <button class="button order-btn w-100" id="add-custom-brew-btn">
+                        <i class="fa-solid fa-plus"></i> Add Custom Brew to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="section-content">
+            <div class="section-title">
+                <h2>Exhibition Menu</h2>
+                <p>Select from our award-winning brews, pastries, and signature drinks.</p>
+            </div>
+
+            <!-- Menu Category (Filter Tabs) -->
+            <div class="menu-tabs">
+                <button class="tab-btn active" data-category="all">All Items</button>
+                <button class="tab-btn" data-category="artisan">Artisan Specials</button>
+                <button class="tab-btn" data-category="coffee">Classic Coffee</button>
+                <button class="tab-btn" data-category="pastries">Pastries & Bakery</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid" id="menu-grid">
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Guestbook & Review Section -->
+    <section class="guestbook-section" id="guestbook">
+        <div class="section-content">
+            <div class="section-title">
+                <h2>Exhibition Booth Guestbook</h2>
+                <p>Leave a review or share your impression of our booth experience!</p>
+            </div>
+
+            <div class="guestbook-grid">
+                <form class="guestbook-form" id="guestbook-form">
+                    <h3>Sign the Guestbook</h3>
+                    
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" id="guest-name" placeholder="e.g. Alex Morgan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <div class="star-rating-select" id="star-rating">
+                            <i class="fa-solid fa-star active" data-rating="1"></i>
+                            <i class="fa-solid fa-star active" data-rating="2"></i>
+                            <i class="fa-solid fa-star active" data-rating="3"></i>
+                            <i class="fa-solid fa-star active" data-rating="4"></i>
+                            <i class="fa-solid fa-star active" data-rating="5"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Experience / Message</label>
+                        <textarea id="guest-message" rows="4" placeholder="Loved the Rose Lavender Latte..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="button order-btn w-100">Post Review</button>
+                </form>
+
+                <div class="guestbook-feed" id="guestbook-feed">
+
+                    <!-- Items inserted via JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="section-content footer-content">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <i class="fa-solid fa-mug-hot logo-icon"></i>
+                    <span class="logo-text">AURA <span>COFFEE</span></span>
+                </a>
+                <p>Crafting memorable coffee experiences for coffee enthusiasts and exhibition visitors.</p>
+            </div>
+            <div class="footer-copy">
+                <p>&copy; 2026 Aura Artisan Coffee Bar. Exhibition Demo Edition.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Cart Drawer (Slide-out) -->
+    <div class="cart-drawer-overlay" id="cart-overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Your Exhibition Order</h3>
+            <button class="cart-close-btn" id="cart-close-btn">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items-container">
+
+            <!-- Cart Items -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Subtotal:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="button order-btn w-100" id="checkout-btn">Place Order Ticket</button>
+        </div>
+    </div>
+
+    <!-- Ticket Confirmation part/area -->
+    <div class="modal-overlay" id="ticket-modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+            <div class="ticket-header">
+                <i class="fa-solid fa-circle-check success-icon"></i>
+                <h2>Order Sent to Barista!</h2>
+                <p>Present this live ticket at the exhibition booth counter.</p>
+            </div>
+            <div class="ticket-details shadow-card">
+                <div class="ticket-row">
+                    <span>Ticket #:</span>
+                    <strong id="ticket-number">#AUR-8492</strong>
+                </div>
+                <div class="ticket-row">
+                    <span>Estimated Wait:</span>
+                    <strong>3 - 5 Mins</strong>
+                </div>
+                <hr>
+                <div id="ticket-item-list"></div>
+                <hr>
+                <div class="ticket-row total">
+                    <span>Total Amount:</span>
+                    <strong id="ticket-total">$0.00</strong>
+                </div>
+            </div>
+            <button class="button order-btn w-100" id="close-modal-btn" style="margin-top:20px;">Done</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
